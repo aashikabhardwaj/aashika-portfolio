@@ -345,9 +345,16 @@ function App() {
                 <span>Vite</span>
               </div>
 
-              <span className="text-link">
-                PERSONAL PROJECT · PORTFOLIO WEBSITE
-              </span>
+              <div className="project-links">
+              <a
+               href="https://github.com/aashikabhardwaj/aashika-portfolio"
+               target="_blank"
+               rel="noopener noreferrer"
+               className="text-link"
+               >
+                View GitHub Repository ↗
+               </a>
+              </div>
             </div>
           </article>
         </section>

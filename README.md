@@ -55,8 +55,8 @@ The project includes farmer, customer, and retailer workflows, along with produc
 
 ## Links
 
-- **Live Portfolio:** To be added after deployment
-- **GitHub:** Add your portfolio repository URL after uploading
+- **Live Portfolio:** https://aashika-portfolio-zeta.vercel.app/
+- **GitHub:** https://github.com/aashikabhardwaj/aashika-portfolio
 
 ---
 
