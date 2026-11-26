@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FarmCart - Database Relationships</title>
+
+  <script type="module">
+    import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
+    mermaid.initialize({ startOnLoad: true, theme: "default" });
+  </script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 30px;
+      background: #f7f8f5;
+      color: #243024;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .diagram {
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 24px;
+      background: white;
+      border-radius: 12px;
+      overflow-x: auto;
+    }
+
+    .note {
+      max-width: 1000px;
+      margin: 20px auto;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+  <h1>FarmCart - Database Relationships</h1>
+
+  <div class="diagram">
+    <pre class="mermaid">
+flowchart TD
+    User[User]
+    Product[Product]
+    Cart[Cart]
+    Order[Order]
+    Review[Review]
+    Delivery[Delivery]
+    PackagingReturn[PackagingReturn]
+    RewardWallet[RewardWallet]
+
+    User -->|seller / retailer| Product
+    User -->|buyer| Cart
+    User -->|buyer / farmer / retailer| Order
+    Product -->|product reference| Order
+    Product -->|product reference| Review
+    User -->|reviewer| Review
+    Order -->|order reference| Delivery
+    User -->|delivery person| Delivery
+    Order -->|order reference| PackagingReturn
+    User -->|customer / seller| PackagingReturn
+    User -->|customer / seller| RewardWallet
+    </pre>
+  </div>
+
+  <p class="note">
+    Note: Product items in the Cart and Order are embedded within their
+    respective documents; they are not stored in separate collections.
+  </p>
+</body>
+</html>

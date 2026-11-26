@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FarmCart Project Workflow</title>
+
+  <style>
+    body {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 20px;
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    pre {
+      overflow-x: auto;
+      background: #f4f4f4;
+      padding: 12px;
+    }
+  </style>
+</head>
+<body>
+  <h1>FarmCart Project Workflow</h1>
+  <div id="documentation">Loading workflow...</div>
+
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script>
+    fetch("/docs/project-workflow.md")
+      .then(response => {
+        if (!response.ok) throw new Error("Workflow file not found");
+        return response.text();
+      })
+      .then(markdown => {
+        document.getElementById("documentation").innerHTML =
+          marked.parse(markdown);
+      })
+      .catch(() => {
+        document.getElementById("documentation").textContent =
+          "Could not load workflow. Check that project-workflow.md is inside public/docs.";
+      });
+  </script>
+</body>
+</html>
